@@ -49,7 +49,7 @@ def plot_early_vs_late_cum_var(early,late,dim=3,save_fig=None):
     print(early_cum_var)
     print(late_cum_var)
     
-    fig,ax = plt.subplots(figsize=(4,4))
+    fig,ax = plt.subplots(figsize=(4,4.4))
     #fig=plt.figure(figsize=(4,4))
     plt.scatter(early_cum_var,late_cum_var)
     
@@ -66,14 +66,14 @@ def plot_early_vs_late_cum_var(early,late,dim=3,save_fig=None):
     plt.plot([0,100],[0,100],c='black',lw=1)
     plt.xlim(0,100)
     plt.ylim(0,100)
-    plt.xlabel('Early - Cum. Var. Expl. (%)',size=plots_font_size)
-    plt.ylabel('Late - Cum. Var. Expl. (%)',size=plots_font_size)
-    #plt.title('Early vs. late var. expl. {}D manifold'.format(dim))
+    plt.xlabel('Early var. (%)',size=plots_font_size)
+    plt.ylabel('Late var. (%)',size=plots_font_size)
+    plt.title('{}D manifold expl. variance'.format(dim),size=plots_font_size, y=1.08)
     fig.tight_layout() 
+    ax.set_aspect('equal')
     plt.show()
     if save_fig != None:
         fig.savefig('./figures/{}.png'.format(save_fig))
-        fig.savefig('./figures/{}.eps'.format(save_fig),format='eps')
         
 def cum_expl_var_early_late(babies,save_fig=None):
     colors = ['blue','blue','blue','blue','red','red','red','red']
